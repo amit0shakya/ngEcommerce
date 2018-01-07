@@ -32,7 +32,7 @@ export class ProductComponent implements OnInit {
     
     //this.addToCart=!this.addToCart;
     
-    this.service.testProduct(this.data);
+    this.service.buyProduct(this.data);
 
     /*
       this.service.prodService.subscribe(

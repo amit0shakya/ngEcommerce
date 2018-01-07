@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter, Output  } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class WebService {
@@ -11,8 +11,7 @@ export class WebService {
   public productService = new Subject<any>();
   //prodService=this.product.asObservable()
 
-  public test = new Subject();
-  testService = this.test.asObservable();
+  public test = new Subject<any>();
 
   constructor() { 
   }
@@ -21,14 +20,13 @@ export class WebService {
     //console.log('login')
   }
 
-  getTestval(){
-    this.test.next('Hello Amit');
-  }
-
-  
-  testProduct(_data){
-    console.log(_data,"<<< product in webservice");
+  buyProduct(_data){
+    console.log(_data,"<<<data recieve to webservice sending to product.ts");
     this.productService.next(_data);
+  }
+  
+  getProduct(): Observable<any>{
+    return this.test.asObservable();
   }
 
 }

@@ -30,10 +30,15 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("ng on init Nav component")
+    
+    this.service.getProduct()
+    .subscribe(
+      _data=> console.log(_data,"<<<data in nav")
+    )
+    /*
     this.service.productService.subscribe(
       _data=>console.log(_data)
-    ) 
+    )*/ 
   }
 
   login(){
