@@ -28,20 +28,8 @@ export class ProductComponent implements OnInit {
   ) { }
 
   buythis(){
-    console.log('Sending value to product service');
-    
-    //this.addToCart=!this.addToCart;
-    
-    this.service.buyProduct(this.data);
-
-    /*
-      this.service.prodService.subscribe(
-        _d=>console.log(_d,"<<data in product.ts")
-      )
-    */
-
-    
-    //this.service.product.next({buy:this.addToCart,object:this.data});
+    this.addToCart=!this.addToCart;
+    this.service.buyProduct({buy:this.addToCart,data:this.data});
   }
 
   ngOnInit() {

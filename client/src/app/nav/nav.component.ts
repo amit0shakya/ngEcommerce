@@ -33,12 +33,8 @@ export class NavComponent implements OnInit {
     
     this.service.getProduct()
     .subscribe(
-      _data=> console.log(_data,"<<<data in nav")
+      _data=> console.log(_data,"<<<data in recieve in nav.ts")
     )
-    /*
-    this.service.productService.subscribe(
-      _data=>console.log(_data)
-    )*/ 
   }
 
   login(){
