@@ -1,0 +1,43 @@
+header{width:100%; min-height: 230px; background-color: #fff;}
+
+.navband{ background-color:#000;height:40px;}
+
+.navbandcontent{line-height: 40px;}
+
+.navmail{width:330px;float: left; overflow: hidden;}
+
+.navregister{float: right;}
+
+.navregister ul{margin:0px; padding: 0px;}
+
+.navregister ul li{margin: 0px; padding: 0px; float: right; margin:0px 10px; line-height: 40px; list-style: none}
+
+.navregister ul li a{color:#ececec; }
+
+.navregister ul li button{color:#fff}
+
+.headerbody{height:130px;}
+
+.headerlogo{width:300px; height:90px;float: left; margin:20px 0px; box-sizing: border-box; text-align: center; }
+
+.headersearch{float: left; height: 90px; margin-top: 20px; width:800px; box-sizing: border-box;}
+
+.headersearch input[type="text"]{max-height: 40px; margin:25px 10px; max-width: 600px;}
+
+.shoppingcart{width:200px; height: 90px; margin: 20px 0px; float: left; box-sizing: border-box;}
+
+.shoppingcart i{font-size:40px; color:#1a84db; margin-top:20px;}
+
+.shoppingcart .buys{margin:15px 0px 0px 12px; color:#000; padding:0px;}
+
+.navlist{ min-height: 60px;}
+
+.navlist ul{margin:0px; padding: 0px;}
+
+.navlist ul li{float:left; height:60px;  list-style: none; line-height: 60px; background-color: transparent;}
+
+.navlist ul li:hover{float:left; height:60px; list-style: none; line-height: 60px; background-color: #3da822;}
+
+.navlist ul li a{color:#fff;  margin:0px 30px; display: block; font-weight: 900; text-align: center; text-decoration: none;}
+
+.navlist ul li:hover a{color:yellow;  margin:0px 30px; display: block; font-weight: 900; text-align: center; text-decoration: none;}

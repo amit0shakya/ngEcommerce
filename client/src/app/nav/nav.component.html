@@ -1,0 +1,76 @@
+<header>
+  <div class="row navband">
+    <div class="columnlg navbandcontent">
+      <div class="navmail">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i> amit0shakya@gmail.com 
+          <i class="fa fa-phone" aria-hidden="true"></i> 9821671927
+      </div>
+
+      <div class="navregister">
+        <ul>
+          <li (click)="login()">
+              <button type="button" class="btn btn-link">Login</button>
+          </li>
+          <li>
+            <button type="button" class="btn btn-link" *ngIf="name!=undefine">Logout</button>
+          </li>
+          <li>
+            <button type="button" class="btn btn-link" routerLink="register" (click)="pageclick('register')">Register</button>
+          </li>
+          <li><a href="#" *ngIf="name!=undefine">Hello Your Name</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="columnlg headerbody">
+      <div class="headerlogo">
+        <img src="./assets/images/logo.jpg">
+      </div>
+
+      <div class="headersearch">
+          
+        <div class="input-group col-md-12">
+              
+          <div class="row" *ngIf="pagename=='home'">
+              <input type="text" class="form-control" placeholder="Search for Products, Brands and more..." aria-label="Input group example" aria-describedby="btnGroupAddon2">
+              <div class="input-group-prepend">
+                  <button type="button" class="btn btn-primary">Search</button>
+              </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="shoppingcart">
+        <div class="row">
+          <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+          <div class="buys">
+            <strong>Shopping Cart</strong><br>
+            0 items
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="background-color:#3fb125;">
+    <div class="columnlg navlist">
+      <ul>
+          <li><a routerLink="" (click)="pageclick('home')">Home</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">Kids</a></li>
+          <li><a href="#">How</a></li>
+          <!--
+          <li><a href="#" *ngIf="name!=undefine">Add Product</a></li>
+          -->
+          <li><a routerLink="new" (click)="pageclick('product')">Add Product</a></li>
+          <li><a routerLink="about" (click)="pageclick('about')">About</a></li>
+
+      </ul>
+    </div>
+  </div>
+
+</header>

@@ -1,0 +1,19 @@
+<div class="productbox">
+    
+    <div class="disable" *ngIf='data.qty<1'>OUT OF STOCK</div>
+    <div class="offer" *ngIf="data.offer!=''">{{data.offer}}</div>
+    <div class="productimage">
+        <div class="buybutton" *ngIf='data.qty>0' (click)="buythis()">
+          <p [hidden]='addToCart'>Add to Cart</p>
+          <p [hidden]='!addToCart'>Remove to Cart</p>
+          <!-- <i class="fa fa-shopping-basket" aria-hidden="true"></i> -->
+        </div>
+        <div class="pimage"></div>
+    </div>
+    <div class="productname">{{data.name}}</div>
+    <div class="productcost">Rs {{data.cost}}</div>
+</div>
+
+<!-- 
+{name:'surf',cost:'Rs 150', offer:'1 bucket free', qty:200}
+-->

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="columnmd register">
+    <h2>User Registeration</h2>
+    <form #register="ngForm" (ngSubmit)="onSubmit(register.value)">
+      
+      <div class="form-group">
+        <input type="text" placeholder="Your Name" class="form-control" name="name" required>
+      </div>
+
+      <div class="form-group">
+          <input type="text" placeholder="Last Name" class="form-control" name="lname" required>
+      </div>
+
+      <div class="form-group">
+          <input type="password" placeholder="password" class="form-control" name="pass1" required>
+      </div>
+
+      <div class="form-group">
+          <input type="password" placeholder="retype password" class="form-control" name="pass2" required>
+      </div>
+
+      <div class="form-group">
+          <input type="email" placeholder="Your Email" class="form-control" name="email" required>
+      </div>
+
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary">Register</button>
+      </div>
+    </form>
+  
+  </div>
+</div>

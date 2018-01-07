@@ -1,0 +1,8 @@
+.banner{height: 250px; overflow-x: hidden; background-image: url(../../assets/images/banner.jpg);
+    background-position: center center; background-repeat: no-repeat; background-size: cover;
+} 
+.products{margin-top:20px; background-color: #fff; color:rgb(77, 75, 75)}
+.products ul{margin:0px; padding: 0px;}
+.products ul li{margin:0px; padding: 0px; float: left; list-style: none;}
+
+.heading h2{ text-align: center; color: #424242; padding:10px 0px; width: 100%;}

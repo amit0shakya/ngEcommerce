@@ -1,0 +1,19 @@
+<div id="myModal" class="modal">
+    
+      <!-- Modal content -->
+      <div class="modal-content loginwindow">
+      
+        <span class="closebtn">X</span>
+      
+        <app-login></app-login>
+      </div>
+    
+</div>
+
+<div class="row">
+  <app-nav (tick)="navclick()"></app-nav>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>

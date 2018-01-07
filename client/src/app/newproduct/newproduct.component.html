@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="columnmd pagestart">
+    <h2>Add New Product</h2><br>
+
+    <div class="row">
+
+      <div class="col-md-3">
+        <p>Product Preview</p>
+        
+        <product [data]='_data'></product>
+        
+      </div>
+
+      <div class="col-md-9">
+        
+          <div class="form-group">
+            <input type="text" placeholder="Product Name" class="form-control"  required [(ngModel)]="_data.name">
+          </div>
+    
+          <div class="form-group row">
+
+            <div class="form-group col-md-3">
+              <input type="checkbox" name="offers" [(ngModel)]="offers">
+              <label>Any Offers?</label>
+            </div>
+
+            <div class="form-group col-md-9" >
+                <input type="text" placeholder="Product Offers detail" class="form-control" name="lname" *ngIf="offers" [(ngModel)]="_data.offer">
+            </div>
+        
+          </div>
+    
+          <div class="form-group">
+              <input type="text" placeholder="Product cost" class="form-control" name="price" required [(ngModel)]="_data.cost">
+          </div>
+    
+          <div class="form-group row">
+              
+            <div class="col-md-4 form-group">
+                <input type="file" placeholder="Input type" ngModel (change)="getFiles($event)">
+            </div>
+
+            <div class="col-md-4 form-group">
+              <div class="row">
+                <label class="col-sm-6">Quantity</label>
+                <input type="text" placeholder="total" name="qty" class="form-control col-sm-6" required [(ngModel)]="_data.qty">
+              </div>
+            </div>
+
+            <div class="col-md-4 form-group">
+              <div class="row">
+
+                <label class="col-md-6">Catagoery:</label>
+
+                <select class="selectpicker form-group col-md-6" data-style="btn-primary" [(ngModel)]="_data.catagoery">
+                    <option value="elecronics">Electronics</option>
+                    <option value="grocery">Grocery</option>
+                    <option value="footwear">Footwear</option>
+                    <option value="garment">Garment</option>
+                    <option value="books">Books</option>
+                    <option value="watch">Watches</option>
+                    <option value="other">Others</option>
+                  </select>    
+              </div>              
+            </div>
+
+          </div>
+    
+          <div class="form-group">
+              <input type="text" placeholder="Product Keywords like abc,xyz,.." class="form-control" name="kayword" required [(ngModel)]="_data.keywords">
+          </div>
+    
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary" (click)="submit()">Register</button>
+          </div>
+          {{_data | json}}
+      </div>
+    </div>
+  </div>
+</div>
