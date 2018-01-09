@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
+import { WebService } from './web.service';
 
 import { AppComponent } from './app.component';
 import { AppRouter } from './routes';
@@ -32,10 +34,9 @@ import { AboutComponent } from './about/about.component';
     BrowserModule,
     FormsModule,
     AppRouter,
-    OwlModule,
-    ReCaptchaModule
+    HttpModule
   ],
-  providers: [],
+  providers: [WebService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, OnChanges, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, OnChanges, EventEmitter, OnDestroy } from '@angular/core';
 import { WebService } from '../web.service';
 import * as $ from "jquery";
 
@@ -9,35 +9,52 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  providers:[WebService],
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit {
-  @Output() tick= new EventEmitter();
-  name:string;
-  pagename:string="home";
+export class NavComponent implements OnInit, OnDestroy {
+  @Output() tick = new EventEmitter();
+  name: string;
+  pagename: string = "home";
+  prod = "empty";
 
-  constructor(
-    private service:WebService
-  ) {}
+  constructor(private service: WebService) {
 
-  pageclick(page){
-    this.pagename=page;
+
+  }
+
+
+  pageclick(page) {
+    this.pagename = page;
   }
 
   ngOnInit() {
-    
-    this.service.getProduct()
-    .subscribe(
-      _data=> console.log(_data,"<<<data in recieve in nav.ts")
+
+    console.log('ngOnInit NAV')
+
+    // this.service.getData()
+    //   .subscribe(data =>
+    //     //  data=> console.log(data,"<<<<data recieve SUCCESS")
+    //     console.log(data, "data Recieve SUCCESS!")
+    //   );
+
+    this.service.prod1.subscribe(function(data){
+      this.prod = data;
+    })
+
+    this.service.getData().subscribe(
+      _d=>console.log(_d,"<<<got data in nav SUCCESS")
     )
+
   }
 
-  login(){
+  ngOnDestroy() {
+
+  }
+
+  login() {
     this.tick.emit();
   }
 }

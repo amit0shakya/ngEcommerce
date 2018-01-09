@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { FormsModule }   from '@angular/forms';
 
 @Component({
   selector: 'app-register',

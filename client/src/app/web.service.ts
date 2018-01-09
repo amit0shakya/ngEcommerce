@@ -1,32 +1,26 @@
-import { Injectable, EventEmitter, Output  } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs';
+import { AsyncSubject } from 'rxjs/Asyncsubject';
+import{ Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/mergeMap';
 
 @Injectable()
 export class WebService {
-  @Output() tick = new EventEmitter();
-   
-  //public product =new Subject<any>();
-  public productService = new Subject<any>();
-  //prodService=this.product.asObservable()
+  public product = new AsyncSubject<any>();
+  prod1 = new Subject<any>();
+  constructor() { }
 
-  public test = new Subject<any>();
-
-  constructor() { 
+  setdata(_data){
+    console.log(_data,"<<<data in webservice")
+     this.product.next(_data);
+    //this.prod1.next(_data);
   }
 
-  login(){
-    //console.log('login')
-  }
-
-  buyProduct(_data){
-    console.log(_data,"<<<data recieve to webservice sending to product.ts");
-    this.productService.next(_data);
-  }
+  getData(): Observable<any>{
+    console.log("get data");
+  return this.product.asObservable();
   
-  getProduct(): Observable<any>{
-    return this.test.asObservable();
   }
-
 }

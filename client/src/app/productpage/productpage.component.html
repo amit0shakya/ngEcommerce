@@ -8,11 +8,12 @@
 
       <div class="row heading">
           <h2>Best Selling Products</h2>
+          <button type="button" class="btn btn-primary" (click)="buyproduct('product page')">Test Service</button>
       </div>
 
     <ul>
       <li *ngFor="let p of dummyproducts ">
-        <product [data]='p'></product>
+        <product [data]='p'  (buy)="buyproduct($event)"></product>
       </li>
     </ul>
   </div>

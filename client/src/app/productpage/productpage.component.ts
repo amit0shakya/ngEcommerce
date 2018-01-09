@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import { ProductComponent } from '../product/product.component';
-import {OwlCarousel} from 'ng2-owl-carousel';
+import { OwlCarousel} from 'ng2-owl-carousel';
 import { WebService } from '../web.service';
 import * as $ from "jquery";
 
@@ -14,7 +14,7 @@ import 'rxjs/add/observable/throw';
 @Component({
   selector: 'app-productpage',
   templateUrl: './productpage.component.html',
-  providers:[ProductComponent, WebService],
+  providers:[ProductComponent],
   styleUrls: ['./productpage.component.css']
 })
 
@@ -34,20 +34,16 @@ export class ProductpageComponent implements OnInit {
   @ViewChild('owlElement') owlElement: OwlCarousel
 
   constructor(
-    private service:WebService
+    private wtf:WebService
   ) { }
 
   ngOnInit() {
     
-    /*
-    this.service.getProduct().subscribe(
-      data=>console.log(data,"<<<data in Product page"),
-      error=>console.log(error)
-    )*/
   }
 
-  buyproduct(data:Object){
-    console.log(data,"<<<buyproduct Product page but we dn't need here")
+  buyproduct(data){
+    console.log(data,"<<<buyproduct Product page sending data")
+    this.wtf.setdata(data);
 
   }
 }
