@@ -4,15 +4,19 @@
 
 <div class="row">
 
-  <div class="columnmd products">
+  <div class="columnmd products" *ngIf="showProducts.length==0">
+      <p>No product found <Strong><i style="color:red">"{{findproductname}}"</i></Strong></p>
+  </div>
+    
+
+  <div class="columnmd products" *ngIf="showProducts.length>0">
 
       <div class="row heading">
           <h2>Best Selling Products</h2>
-          <button type="button" class="btn btn-primary" (click)="buyproduct('product page')">Test Service</button>
       </div>
 
     <ul>
-      <li *ngFor="let p of dummyproducts ">
+      <li *ngFor="let p of showProducts; let i=index ">
         <product [data]='p'  (buy)="buyproduct($event)"></product>
       </li>
     </ul>

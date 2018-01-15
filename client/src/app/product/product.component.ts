@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { WebService } from '../web.service';
+import { ProductService } from './../services/product.service';
 import { Observable } from 'rxjs/Observable';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -22,13 +22,12 @@ export class ProductComponent implements OnInit {
   // @Output() buy = new EventEmitter<Object>();
 
   constructor(
-    private service:WebService
+    private _ps:ProductService
   ) { }
 
   buythis():void{
     this.addToCart=!this.addToCart;
-    console.log(this.data);
-    this.service.setdata(this.data);
+    this._ps.setdata({buy:this.addToCart,product:this.data});
   }
 
   ngOnInit() {

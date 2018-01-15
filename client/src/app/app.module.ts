@@ -2,8 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
-import { WebService } from './web.service';
-
 import { AppComponent } from './app.component';
 import { AppRouter } from './routes';
 import { HomeComponent } from './home/home.component';
@@ -17,6 +15,11 @@ import { OwlModule } from 'ng2-owl-carousel';
 import { FormsModule }   from '@angular/forms';
 import { ReCaptchaModule } from 'angular2-recaptcha';
 import { AboutComponent } from './about/about.component';
+import { ProductService } from './services/product.service';
+import { WebService } from './services/web.service';
+import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
+
+
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { AboutComponent } from './about/about.component';
     NavComponent,
     ProductComponent,
     ProductpageComponent,
-    AboutComponent
+    AboutComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,7 @@ import { AboutComponent } from './about/about.component';
     AppRouter,
     HttpModule
   ],
-  providers: [WebService],
+  providers: [ProductService,WebService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

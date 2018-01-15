@@ -1,6 +1,6 @@
 <div class="row">
   <div class="columnmd pagestart">
-    <h2>Add New Product</h2><br>
+    <h2>Add New Product 1</h2><br>
 
     <div class="row">
 
@@ -13,7 +13,7 @@
 
       <div class="col-md-9">
         
-          <div class="form-group">
+          <div class="form-group row">
             <input type="text" placeholder="Product Name" class="form-control"  required [(ngModel)]="_data.name">
           </div>
     
@@ -30,14 +30,21 @@
         
           </div>
     
-          <div class="form-group">
-              <input type="text" placeholder="Product cost" class="form-control" name="price" required [(ngModel)]="_data.cost">
+          <div class="row form-group">
+            <div class="col-md-2 form-group">
+              <input type="text" placeholder="Cost INR" class="form-control" name="price" required [(ngModel)]="_data.cost" maxlength="4"  onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+            </div>
+
+            <div class="col-md-10 form-group">
+                <input type="text" placeholder="Product Keywords like abc,xyz,.." class="form-control" name="kayword" required [(ngModel)]="_data.keywords">
+            </div>
+          
           </div>
     
           <div class="form-group row">
               
             <div class="col-md-4 form-group">
-                <input type="file" placeholder="Input type" ngModel (change)="getFiles($event)">
+                <input type="file" name="single" placeholder="Input type" (change)="uploadpic()" ng2FileSelect [uploader]="uploader" accept="image/png,image/jpg,image/jpeg">
             </div>
 
             <div class="col-md-4 form-group">
@@ -66,12 +73,8 @@
 
           </div>
     
-          <div class="form-group">
-              <input type="text" placeholder="Product Keywords like abc,xyz,.." class="form-control" name="kayword" required [(ngModel)]="_data.keywords">
-          </div>
-    
-          <div class="form-group">
-              <button type="submit" class="btn btn-primary" (click)="submit()">Register</button>
+          <div class="form-group row">
+              <button type="submit" class="btn btn-primary" (click)="saveproduct()">Register</button>
           </div>
           {{_data | json}}
       </div>

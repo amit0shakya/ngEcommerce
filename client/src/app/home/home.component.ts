@@ -4,7 +4,7 @@ import { ProductpageComponent } from '../productpage/productpage.component';
 import { LoginComponent } from '../login/login.component';
 import { NewproductComponent } from '../newproduct/newproduct.component';
 import { RegisterComponent } from '../register/register.component';
-import { WebService } from '../web.service';
+import { ProductService } from './../services/product.service';
 import * as $ from "jquery";
 
 @Component({
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('loginbox')
   private login:ElementRef;
   bool=false;
-  constructor(private service:WebService) { 
+  constructor(private service:ProductService) { 
 
     
   }

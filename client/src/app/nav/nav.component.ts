@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, OnChanges, EventEmitter, OnDestroy } from '@angular/core';
-import { WebService } from '../web.service';
+import { FormsModule } from "@angular/forms";
+import { ProductService } from './../services/product.service';
 import * as $ from "jquery";
 
 import { Observable } from 'rxjs/Observable';
@@ -15,16 +16,16 @@ import 'rxjs/add/observable/throw';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit, OnDestroy {
+  public searchitem:String;
   @Output() tick = new EventEmitter();
+  toggledd=false;
   name: string;
   pagename: string = "home";
-  prod = "empty";
+  productlist=[];
 
-  constructor(private service: WebService) {
-
+  constructor(private _ps: ProductService) {
 
   }
-
 
   pageclick(page) {
     this.pagename = page;
@@ -32,21 +33,13 @@ export class NavComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    console.log('ngOnInit NAV')
-
-    // this.service.getData()
-    //   .subscribe(data =>
-    //     //  data=> console.log(data,"<<<<data recieve SUCCESS")
-    //     console.log(data, "data Recieve SUCCESS!")
-    //   );
-
-    this.service.prod1.subscribe(function(data){
-      this.prod = data;
+    var _this=this;
+    this._ps.productService.subscribe(function(data){
+      if(data!=null){
+      _this.productlist.push(data)
+      console.log(_this.productlist,"<<<data in nav")
+      }
     })
-
-    this.service.getData().subscribe(
-      _d=>console.log(_d,"<<<got data in nav SUCCESS")
-    )
 
   }
 
@@ -56,5 +49,10 @@ export class NavComponent implements OnInit, OnDestroy {
 
   login() {
     this.tick.emit();
+  }
+
+  finditem(){
+
+    this._ps.findProduct(this.searchitem)
   }
 }

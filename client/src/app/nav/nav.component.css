@@ -28,7 +28,7 @@ header{width:100%; min-height: 230px; background-color: #fff;}
 
 .shoppingcart i{font-size:40px; color:#1a84db; margin-top:20px;}
 
-.shoppingcart .buys{margin:15px 0px 0px 12px; color:#000; padding:0px;}
+.shoppingcart .buys{margin:15px 0px 0px 12px; color:#000; padding:0px; position: relative;}
 
 .navlist{ min-height: 60px;}
 
@@ -41,3 +41,20 @@ header{width:100%; min-height: 230px; background-color: #fff;}
 .navlist ul li a{color:#fff;  margin:0px 30px; display: block; font-weight: 900; text-align: center; text-decoration: none;}
 
 .navlist ul li:hover a{color:yellow;  margin:0px 30px; display: block; font-weight: 900; text-align: center; text-decoration: none;}
+
+.cartItems{width:110px; height:auto; background-color: #1a84db; border-radius: 5px; 
+    position: absolute; top:50px;}
+
+.cartItems ul{margin: 0px; padding: 0px;}
+
+.cartItems ul li{margin: 0px; padding: 0px; list-style: none; width:110px;
+     height: 30px; color:#fff; line-height: 30px; padding-left: 5px;}
+
+.cartboxdd{width: 110px; height:25px; background-color: #adb1b4; color:#000; float: left; 
+    padding-left:5px; line-height:25px; color:#fff; font-weight: 600; border-radius: 4px; 
+    display: block; cursor: pointer;}
+
+.cartboxdd p{ width:80px; height: 25px; float: left; color: #fff; text-align: left;}
+
+.cartboxdd i{font-size: 14px; color:#fff; float: left; width:25px; height: 25px; 
+    margin-top: 0px; text-align: center; line-height: 25px;}

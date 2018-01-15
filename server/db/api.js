@@ -5,12 +5,12 @@ var knex = require('knex')(config);
 var bookshelf = require('bookshelf')(knex);
 
 router.get('/products',function(req,res){
-	
+	console.log('products')
 	res.send('products');
 })
 
 router.post('/addproduct',function(req,res){
-	res.sed('add products');
+	res.send('add products');
 })	
 
 module.exports = router

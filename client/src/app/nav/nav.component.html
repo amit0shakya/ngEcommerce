@@ -34,9 +34,9 @@
         <div class="input-group col-md-12">
               
           <div class="row" *ngIf="pagename=='home'">
-              <input type="text" class="form-control" placeholder="Search for Products, Brands and more..." aria-label="Input group example" aria-describedby="btnGroupAddon2">
+              <input type="text" class="form-control" [(ngModel)]="searchitem" placeholder="Search for Products, Brands and more..." aria-label="Input group example" aria-describedby="btnGroupAddon2">
               <div class="input-group-prepend">
-                  <button type="button" class="btn btn-primary">Search</button>
+                  <button type="button" class="btn btn-primary" (click)="finditem()">Search</button>
               </div>
           </div>
         </div>
@@ -48,7 +48,28 @@
           <i class="fa fa-shopping-basket" aria-hidden="true"></i>
           <div class="buys">
             <strong>Shopping Cart</strong><br>
-            0 items
+            <div>
+
+              <div *ngIf="productlist.length==0">0 Items</div>
+
+              <span class="cartboxdd" (click)="toggledd=!toggledd;" *ngIf="productlist.length>0">
+                <p>{{productlist.length}} Items</p>  
+                <i [hidden]="toggledd" class="fa fa-caret-down" aria-hidden="true"></i>
+                <i [hidden]="!toggledd" class="fa fa-caret-up" aria-hidden="true"></i>
+              </span>
+
+              <div class="cartItems" [hidden]="!toggledd">
+                <ul>
+                  <li *ngFor='let _p of productlist; let i=index'> <div> {{_p.product.name}}</div></li>
+                </ul>
+                </div>
+            </div>
+            <!--
+            <select class="cartbox" *ngIf="productlist.length>0">
+              <option *ngFor='let _p of productlist; let i=index'>
+                <div> {{_p.product.name}}</div>
+              </option>
+            </select>-->
           </div>
         </div>
       </div>
