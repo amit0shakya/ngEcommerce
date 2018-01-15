@@ -18,6 +18,7 @@ import { AboutComponent } from './about/about.component';
 import { ProductService } from './services/product.service';
 import { WebService } from './services/web.service';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
+import { ProductviewComponent } from './productview/productview.component';
 
 
 
@@ -32,7 +33,8 @@ import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
     ProductComponent,
     ProductpageComponent,
     AboutComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    ProductviewComponent
   ],
   imports: [
     BrowserModule,

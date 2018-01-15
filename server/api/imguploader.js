@@ -3,8 +3,6 @@ var router = express.Router();
 var path = require('path');
 var multer = require('multer');
 
-console.log(__dirname,"<<<dirname")
-
   // Set The Storage Engine
   const storage = multer.diskStorage({
     destination: './../../public',

@@ -1,4 +1,4 @@
-var bookshelf= requre('bookshelf');
+var bookshelf= require('bookshelf');
 
 var Feedbacks = bookshelf.Model.extend({
   tableName: 'feedback',

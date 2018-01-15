@@ -12,13 +12,17 @@ export class WebService {
 
   constructor(private _http:Http) { }
 
-  uploadpic (img){
+  uploadpic (img):Observable<any>{
     const body = {"filaname": img};
-     this.uploader.uploadAll();
-    //return this._http.post('http://localhost:3000/upload/productpic',body)
+    console.log(img,"<<<img in uploadpic")
+     /*this.uploader.uploadAll();*/
+    return this._http.post('http://localhost:3000/upload/productpic',body)
   }
 
   newproduct(_data):Observable<any>{
+
+    console.log(_data,"<<<data");
+
    return this._http.post("http://localhost:3000/api/addproduct",_data)
   }
 

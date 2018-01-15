@@ -7,7 +7,7 @@
       <div class="col-md-3">
         <p>Product Preview</p>
         
-        <product [data]='_data'></product>
+        <app-productview [data]='_data'></app-productview>
         
       </div>
 
@@ -32,7 +32,7 @@
     
           <div class="row form-group">
             <div class="col-md-2 form-group">
-              <input type="text" placeholder="Cost INR" class="form-control" name="price" required [(ngModel)]="_data.cost" maxlength="4"  onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+              <input type="text" placeholder="Cost INR" class="form-control" name="price" required [(ngModel)]="_data.price" maxlength="4"  onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
             </div>
 
             <div class="col-md-10 form-group">
@@ -42,15 +42,19 @@
           </div>
     
           <div class="form-group row">
-              
+            <form (ngSubmit)="onSubmit(heroForm.value)" #heroForm="ngForm">
+            <!-- <form (ngSubmit)="submitform(form.value)" #form="ngForm"> -->
             <div class="col-md-4 form-group">
-                <input type="file" name="single" placeholder="Input type" (change)="uploadpic()" ng2FileSelect [uploader]="uploader" accept="image/png,image/jpg,image/jpeg">
+                <input type="file" class='inputfile' name="single" placeholder="Input type" (change)="uploadpic()" accept="image/png,image/jpg,image/jpeg">
+                <label for="file">Choose a file</label>
+                <button type="submit">submit</button>
             </div>
+          </form>  
 
             <div class="col-md-4 form-group">
               <div class="row">
                 <label class="col-sm-6">Quantity</label>
-                <input type="text" placeholder="total" name="qty" class="form-control col-sm-6" required [(ngModel)]="_data.qty">
+                <input type="number" min="1" placeholder="total" name="qty" class="form-control col-sm-6" required [(ngModel)]="_data.qty">
               </div>
             </div>
 

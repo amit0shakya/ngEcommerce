@@ -1,5 +1,4 @@
-var bookshelf= requre('bookshelf');
-var Pimages = requre()
+var bookshelf= require('bookshelf');
 
 var Gallery = bookshelf.Model.extend({
   tableName: 'gallery',

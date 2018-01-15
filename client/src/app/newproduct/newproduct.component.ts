@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductComponent } from '../product/product.component';
+import { ProductviewComponent } from '../productview/productview.component';
 import { WebService } from '../services/web.service';
 import { FileUploader } from 'ng2-file-upload';
 
@@ -14,7 +14,7 @@ import 'rxjs/add/observable/throw';
 @Component({
   selector: 'app-newproduct',
   templateUrl: './newproduct.component.html',
-  providers:[ProductComponent],
+  providers:[ProductviewComponent],
   styleUrls: ['./newproduct.component.css']
 })
 export class NewproductComponent implements OnInit {
@@ -22,7 +22,7 @@ export class NewproductComponent implements OnInit {
   imageSrc: string = '';
   uploader:FileUploader = new FileUploader({url:'http://localhost:3000/upload/productpic'});
 
-  _data={name:'',cost:'',qty:'1',offer:'',catagoery:'',keywords:'',image:'',dummy:true}
+  _data={name:'',price:'',qty:'1',offer:'',catagoery:'',keywords:'',image:'',dummy:true}
 
   constructor(
     private ws:WebService 
@@ -34,7 +34,7 @@ export class NewproductComponent implements OnInit {
   uploadpic(){
     
     this.uploader.uploadAll()
-    console.log(this.uploader,"<<this.uploader")
+    //console.log(this.uploader,"<<this.uploader")
 
   }
 
@@ -45,14 +45,16 @@ export class NewproductComponent implements OnInit {
   }
 
   saveproduct(){
-    console.log(this._data,"<<<<save product")
     this.ws.newproduct(this._data)
-    .subscribe(data=>console.log(data)) 
+    .subscribe(cb=>console.log(cb,"<callback"));
   }
 
 
-  submit(){
-    
+  onSubmit(_data){
+    console.log(_data,"<<<data")
+
+    this.ws.uploadpic(_data)
+    .subscribe(data=>console.log(data))
   }
 
 }
