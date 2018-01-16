@@ -21,7 +21,6 @@ import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 import { ProductviewComponent } from './productview/productview.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

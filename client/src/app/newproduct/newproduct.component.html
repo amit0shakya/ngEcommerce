@@ -45,7 +45,7 @@
             <form (ngSubmit)="onSubmit(heroForm.value)" #heroForm="ngForm">
             <!-- <form (ngSubmit)="submitform(form.value)" #form="ngForm"> -->
             <div class="col-md-4 form-group">
-                <input type="file" class='inputfile' name="single" placeholder="Input type" (change)="uploadpic()" accept="image/png,image/jpg,image/jpeg">
+                <input type="file" class='inputfile' name="single" placeholder="Input type" (change)="uploadpic()" accept="image/png,image/jpg,image/jpeg" id="picuploader">
                 <label for="file">Choose a file</label>
                 <button type="submit">submit</button>
             </div>

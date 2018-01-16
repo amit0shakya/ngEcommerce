@@ -2,56 +2,23 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var multer = require('multer');
+var DIR = './uploads/';
 
-  // Set The Storage Engine
-  const storage = multer.diskStorage({
-    destination: './../../public',
-    filename: function(req, file, cb){
-      cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    }
-  });
-
-  // Init Upload
-  const upload = multer({
-    storage: storage,
-    limits:{fileSize: 1000000},
-    fileFilter: function(req, file, cb){
-      checkFileType(file, cb);
-    }
-  }).single('produtimg');
-
-  // Check File Type
-  function checkFileType(file, cb){
-    // Allowed ext
-    const filetypes = /jpeg|jpg|png|gif/;
-    // Check ext
-    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-    // Check mime
-    const mimetype = filetypes.test(file.mimetype);
-
-    if(mimetype && extname){
-      return cb(null,true);
-    } else {
-      cb('Error: Images Only!');
-    }
-  }
+//define the type of upload multer would be doing and pass in its destination, in our case, its a single file with the name photo
+var upload = multer({dest: DIR}).single('photo');
 
   router.post('/productpic', (req, res) => {
-
-    console.log(req.body,'<<<<upload pic')
-        
-    upload(req, res, (err) => {
-      if(err){
-        res.send('Error>>', err);
-      } else {
-        if(req.file == undefined){
-          res.send('Error: No File Selected!');
-        } else {
-          res.send('File Uploaded!');
-        }
-      }
-    });
-    
+      var path = '';
+      upload(req, res, function (err) {
+        if (err) {
+          // An error occurred when uploading
+          console.log(err,"<<<error");
+          return res.status(422).send("an Error occured")
+        }  
+      // No error occured.
+        path = req.file.path;
+        return res.send("Upload Completed for "+path); 
+      });       
   });
 
 module.exports = router
